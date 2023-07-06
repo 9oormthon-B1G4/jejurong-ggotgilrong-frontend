@@ -21,8 +21,10 @@ const BottomSheet = () => {
       </TopBtnArea>
       <ThemeBox />
       <Divider />
-      <QuestBookBox />
-      <LocalPlaceBox />
+      <ContentsBox className="contentsBox" $isScroll={tabPosition === -450}>
+        <QuestBookBox id={1} />
+        <LocalPlaceBox />
+      </ContentsBox>
     </BottomSheetContainer>
   );
 };
@@ -62,4 +64,9 @@ const TopBtnArea = styled.div`
     border-radius: 1.5px;
     background-color: #d9d9d9;
   }
+`;
+
+const ContentsBox = styled.div<{ $isScroll: boolean }>`
+  height: calc(100vh - 200px);
+  overflow-y: ${({ $isScroll }) => ($isScroll ? 'scroll' : 'hidden')};
 `;

@@ -1,5 +1,11 @@
 import { useRef, useState } from 'react';
 
+const SCROLL_SIZE = {
+  top: -450,
+  minTop: -400,
+  minBottom: 50,
+};
+
 export interface ReactContextValueProps {
   isDragging: boolean;
   tabPosition: number;
@@ -7,7 +13,6 @@ export interface ReactContextValueProps {
   handleTouchStart: (event: React.TouchEvent<HTMLDivElement>) => void;
   handleTouchMove: (event: React.TouchEvent<HTMLDivElement>) => void;
   handleTouchEnd: () => void;
-  // handleScroll: () => void;
 }
 
 const useSlider = () => {
@@ -24,53 +29,25 @@ const useSlider = () => {
   };
 
   const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    const divTop = document
-      .querySelector('.bottomSheet')
-      ?.getBoundingClientRect().top;
-
-    // console.log(divTop);
-
-    if (isDragging) {
-      const dragDistance = event.touches[0].clientY - dragStartY;
-      const distance = currentPositionRef.current + dragDistance;
-      if (distance <= 0) {
-        setTabPosition(distance);
+    if (Number(document.querySelector('.contentsBox')?.scrollTop) === 0) {
+      if (isDragging) {
+        const dragDistance = event.touches[0].clientY - dragStartY;
+        const distance = currentPositionRef.current + dragDistance;
+        if (distance <= 0) {
+          if (tabPosition >= SCROLL_SIZE.top) setTabPosition(distance);
+        }
       }
-
-      // 숨겨졌을 경우
-      // 노출되 있을 경우
-
-      // if (
-      //   dragDistance <= -SLIDER_RANGE.min &&
-      //   dragDistance >= -SLIDER_RANGE.max
-      // ) {
-      //   setTabPosition(SLIDER_RANGE.max + dragDistance);
-      // }
-      // if (
-      //   dragDistance >= SLIDER_RANGE.min &&
-      //   dragDistance <= SLIDER_RANGE.max
-      // ) {
-      // }
     }
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
-    // 숨겨졌을 경우
-    // if (isTabPostion && tabPosition < SLIDER_RANGE.max - 20) {
-    //   setTabPosition(SLIDER_RANGE.min);
-    //   setIsTabPosition(false);
-    // } else if (!isTabPostion && tabPosition > SLIDER_RANGE.min + 20) {
-    //   // 노출되 있을 경우
-    //   setTabPosition(SLIDER_RANGE.max);
-    //   setIsTabPosition(true);
-    // }
-  };
+    // 맥스 사이즈일때
 
-  // const handleScroll = (event: React.UIEventHandler<HTMLDivElement>) => {
-  //   // console.log(event.scroo);
-  //   console.log(window.scrollY);
-  // };
+    if (tabPosition <= SCROLL_SIZE.minTop) {
+      setTabPosition(SCROLL_SIZE.top);
+    }
+  };
 
   const contextValue = {
     isDragging,
@@ -78,7 +55,6 @@ const useSlider = () => {
     handleTouchStart,
     handleTouchMove,
     handleTouchEnd,
-    // handleScroll,
   };
 
   return contextValue;
