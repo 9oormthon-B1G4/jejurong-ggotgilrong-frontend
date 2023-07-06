@@ -2,6 +2,34 @@ import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import QuestBookItem from './QuestBookItem';
 
+const arr = [
+  {
+    contents:
+      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
+    station: '어디서나 정류장',
+  },
+  {
+    contents:
+      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
+    station: '어디서나 정류장',
+  },
+  {
+    contents:
+      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
+    station: '어디서나 정류장',
+  },
+  {
+    contents:
+      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
+    station: '어디서나 정류장',
+  },
+  {
+    contents:
+      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
+    station: '어디서나 정류장',
+  },
+];
+
 const QuestBookBox = ({ id }: { id: number }) => {
   const navigate = useNavigate();
 
@@ -35,26 +63,15 @@ const QuestBookBox = ({ id }: { id: number }) => {
       <QuestBookItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
       >
-        <QuestBookItem
-          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
-          station={'어디서나 정류장'}
-          onClick={() => handleMoveBook(1)}
-        />
-        <QuestBookItem
-          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
-          station={'어디서나 정류장'}
-          onClick={() => handleMoveBook(1)}
-        />
-        <QuestBookItem
-          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
-          station={'어디서나 정류장'}
-          onClick={() => handleMoveBook(1)}
-        />
-        <QuestBookItem
-          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
-          station={'어디서나 정류장'}
-          onClick={() => handleMoveBook(1)}
-        />
+        {arr.map((item, idx) => (
+          <QuestBookItem
+            key={idx}
+            idx={(idx + 1) % 3}
+            contents={item.contents}
+            station={item.station}
+            onClick={() => handleMoveBook(1)}
+          />
+        ))}
       </QuestBookItemBox>
     </QuestBookBoxCotainer>
   );
@@ -72,7 +89,7 @@ const QuestBookHeader = styled.div`
 
   & > h1 {
     color: var(--gray-900, #222);
-    font-family: NanumSquare Neo OTF;
+    font-family: 'NanumSquare Neo OTF';
     font-size: 16px;
     font-style: normal;
     font-weight: 550;
@@ -87,7 +104,7 @@ const QuestBookHeader = styled.div`
 
     & > span {
       padding-top: 2px;
-      font-family: Pretendard;
+      font-family: 'Pretendard';
       font-size: 14px;
       font-style: normal;
       font-weight: 400;

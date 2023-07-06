@@ -3,14 +3,14 @@ import ThemeTab from './ThemeTab';
 import { useState } from 'react';
 
 const arr = [
-  { id: 1, title: '바다버스' },
-  { id: 2, title: '감성버스' },
-  { id: 3, title: '예븐버스' },
-  { id: 4, title: '성산버스' },
-  { id: 5, title: '에월버스' },
-  { id: 6, title: '에월버스' },
-  { id: 7, title: '에월버스' },
-  { id: 8, title: '에월버스' },
+  { id: 1, busNumber: 301 },
+  { id: 2, busNumber: 302 },
+  { id: 3, busNumber: 303 },
+  { id: 4, busNumber: 304 },
+  { id: 5, busNumber: 305 },
+  { id: 6, busNumber: 306 },
+  { id: 7, busNumber: 307 },
+  { id: 8, busNumber: 308 },
 ];
 
 const ThemeBox = () => {
@@ -31,12 +31,20 @@ const ThemeBox = () => {
         {arr.map((item) => (
           <ThemeTab
             key={item.id}
-            title={item.title}
+            busNumber={item.busNumber}
             isActive={activeTab === item.id}
             handleOnClick={() => handleOnChangeTab(item.id)}
           />
         ))}
       </ThemeItemBox>
+
+      <ThemeInfoBox>
+        <h2>릴렉스 버스</h2>
+        <p>
+          제주시의 카페에서 여유로운 아침을 맞고 저녁엔 삼양 검은 모래 해변
+          데크를 따라 걷기 좋은 노선 입니다.
+        </p>
+      </ThemeInfoBox>
     </ThemeBoxContainer>
   );
 };
@@ -45,6 +53,7 @@ export default ThemeBox;
 
 const ThemeBoxContainer = styled.div`
   overflow-x: auto;
+  padding-bottom: 24px;
 `;
 
 const SheetHeader = styled.div`
@@ -59,7 +68,7 @@ const SheetHeader = styled.div`
     padding-top: 3px;
 
     color: var(--gray-900, #222);
-    font-family: NanumSquare Neo OTF;
+    font-family: 'NanumSquare Neo OTF';
     font-size: 16px;
     font-style: normal;
     font-weight: 550;
@@ -72,8 +81,8 @@ const ThemeItemBox = styled.ul`
   align-items: center;
   gap: 16px;
   margin-top: 16px;
-  height: 40px;
   width: 100%;
+  height: 64px;
   overflow-x: scroll;
   overflow-y: hidden;
 
@@ -82,5 +91,30 @@ const ThemeItemBox = styled.ul`
 
   &::-webkit-scrollbar {
     display: none; /*( 크롬, 사파리, 오페라, 엣지 ) 동작*/
+  }
+`;
+
+const ThemeInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 16px 0px;
+
+  & > h2 {
+    color: var(--gray-900, #222);
+    font-family: 'NanumSquare Neo OTF';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  & > p {
+    color: var(--gray-700, #616161);
+    font-family: 'Pretendard';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
   }
 `;

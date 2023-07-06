@@ -24,9 +24,10 @@ const BottomSheet = () => {
       <ContentsBox
         className="contentsBox"
         $isScroll={tabPosition === SCROLL_SIZE.top}
-        $bottomHeight={-window.innerHeight * 0.3}
+        $bottomHeight={-window.innerHeight * 0.4}
       >
         <QuestBookBox id={1} />
+        <ContentDivider />
         <LocalPlaceBox />
       </ContentsBox>
     </BottomSheetContainer>
@@ -36,16 +37,23 @@ const BottomSheet = () => {
 export default BottomSheet;
 
 const Divider = styled.div`
-  width: 100%;
+  margin: 0 auto;
+  width: calc(100% - 32px);
   height: 1px;
   background-color: #e0e0e0;
+`;
+
+const ContentDivider = styled.div`
+  width: 100%;
+  height: 8px;
+  background: var(--gray-50, #fafafa);
 `;
 
 const BottomSheetContainer = styled.div`
   position: absolute;
   display: flex;
   width: 100%;
-  top: calc(100% - 300px);
+  top: calc(100% - 420px);
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 30px 30px 0px 0px;

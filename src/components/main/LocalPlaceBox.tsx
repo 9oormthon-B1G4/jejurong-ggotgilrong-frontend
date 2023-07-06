@@ -7,35 +7,35 @@ const arr = [
     title: '추천명1',
     desc: '안녕하세요 환영합니다',
     url: 'https://naver.com',
-    src: 'https://via.placeholder.com/343x186',
+    src: 'test_img.png',
   },
   {
     id: 2,
     title: '추천명2',
     desc: '안녕하세요 환영합니다',
     url: 'https://naver.com',
-    src: 'https://via.placeholder.com/343x186',
+    src: 'test_img.png',
   },
   {
     id: 3,
     title: '추천명3',
     desc: '안녕하세요 환영합니다',
     url: 'https://naver.com',
-    src: 'https://via.placeholder.com/343x186',
+    src: 'test_img.png',
   },
   {
     id: 4,
     title: '추천명4',
     desc: '안녕하세요 환영합니다',
     url: 'https://naver.com',
-    src: 'https://via.placeholder.com/343x186',
+    src: 'test_img.png',
   },
   {
     id: 5,
     title: '추천명5',
     desc: '안녕하세요 환영합니다',
     url: 'https://naver.com',
-    src: 'https://via.placeholder.com/343x186',
+    src: 'https://via.placeholder.com/343x228',
   },
 ];
 
@@ -51,6 +51,7 @@ const LocalPlaceBox = () => {
             desc={item.desc}
             url={item.url}
             src={item.src}
+            stationName="정류장"
           />
         ))}
       </PlaceItemBox>
@@ -65,7 +66,7 @@ const LocalPlaceBoxContiner = styled.div`
 
   & > h1 {
     color: var(--gray-900, #222);
-    font-family: NanumSquare Neo OTF;
+    font-family: 'NanumSquare Neo OTF';
     font-size: 16px;
     font-style: normal;
     font-weight: 550;
@@ -78,5 +79,4 @@ const PlaceItemBox = styled.div`
   flex-direction: column;
   padding-top: 17px;
   gap: 24px;
-  overflow-y: scroll;
 `;
