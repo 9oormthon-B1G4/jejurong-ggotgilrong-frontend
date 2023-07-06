@@ -1,5 +1,4 @@
 import { CustomOverlayMap, Map } from 'react-kakao-maps-sdk';
-import { styled } from 'styled-components';
 import StationMaker from './StationMaker';
 
 const arr = [
