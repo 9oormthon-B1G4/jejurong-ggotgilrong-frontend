@@ -108,7 +108,7 @@ const Info = styled.div`
   }
 
   div.nickname {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 

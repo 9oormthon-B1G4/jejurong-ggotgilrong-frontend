@@ -69,9 +69,9 @@ const StationChip = styled.div`
   height: 28px;
   padding: 0 12px;
 
-  font-family: 'NanumSquare';
-  font-size: 14px;
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-size: 16px;
+  font-weight: 500;
   line-height: 28px;
   color: ${({ theme }) => theme.colors.gray_300};
 

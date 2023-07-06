@@ -79,6 +79,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  font-family: 'Pretendard';
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.gray_900};
 `;
 
 const Icon_Box = styled.div`
@@ -118,7 +123,7 @@ const TextBox = styled.div`
     font-size: 12px;
     line-height: 16px;
     color: ${({ theme }) => theme.colors.gray_900};
-    margin-bottom: 20px;
+    margin: 10px 0;
 
     overflow: hidden;
     text-overflow: ellipsis;

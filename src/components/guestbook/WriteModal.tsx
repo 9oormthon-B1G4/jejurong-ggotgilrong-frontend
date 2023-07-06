@@ -105,9 +105,9 @@ const ModalView = styled.div`
 
 const ModalHeader = styled.div`
   height: 48px;
-  font-family: 'NanumSquare';
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-size: 18px;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.gray_900};
   line-height: 48px;
   text-align: center;
@@ -123,8 +123,11 @@ const ModalInputBox = styled.textarea`
   border-radius: 10px;
 
   font-family: 'Pretendard';
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
 
+  color: ${({ theme }) => theme.colors.gray_900};
   background-color: ${({ theme }) => theme.colors.gray_100};
 `;
 
@@ -140,9 +143,9 @@ const CreateBtn = styled.button`
   right: 0;
   bottom: 0;
 
-  font-family: 'NanumSquare';
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-size: 18px;
+  font-weight: 500;
   color: white;
 
   &:hover.enable {
