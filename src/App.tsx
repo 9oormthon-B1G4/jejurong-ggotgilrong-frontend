@@ -1,8 +1,16 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from './styles/global-style';
+
+import { MainPage } from '@pages/Main';
+
 function App() {
   return (
-    <>
-      <div>구름톤</div>
-    </>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
