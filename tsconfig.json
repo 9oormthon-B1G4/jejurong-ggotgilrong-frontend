@@ -12,7 +12,7 @@
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "react-kakao-maps-sdk": ["node_modules/react-kakao-maps-sdk/lib/@types"]
+      "react-kakao-maps-sdk": ["node_modules/react-kakao-maps-sdk/lib/@types"],
       "@api/*": ["src/api/*"]
     },
 

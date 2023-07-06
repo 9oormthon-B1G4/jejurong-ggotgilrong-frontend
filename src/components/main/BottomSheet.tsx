@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import ThemeBox from './ThemeBox';
 import QuestBookBox from './QuestBookBox';
 import useSlider, { SCROLL_SIZE } from 'src/hooks/useSlider';
