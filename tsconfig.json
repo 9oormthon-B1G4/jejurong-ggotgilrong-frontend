@@ -13,6 +13,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "react-kakao-maps-sdk": ["node_modules/react-kakao-maps-sdk/lib/@types"]
+      "@api/*": ["src/api/*"]
     },
 
     /* Bundler mode */
