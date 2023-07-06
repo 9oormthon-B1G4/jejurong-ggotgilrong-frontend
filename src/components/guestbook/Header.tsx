@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-export const Header = () => {
+interface propsType {
+  name: string;
+}
+
+export const Header = ({ name }: propsType) => {
   const navigate = useNavigate();
 
   const handleClickBackBtn = () => {
@@ -13,7 +17,7 @@ export const Header = () => {
       <BackBtn onClick={handleClickBackBtn}>
         <img src={import.meta.env.BASE_URL + './icon/back_icon.svg'} />
       </BackBtn>
-      <BusName>OO버스 방명록</BusName>
+      <BusName>{name} 방명록</BusName>
     </HeaderContainer>
   );
 };
@@ -35,9 +39,9 @@ const HeaderContainer = styled.div`
 `;
 
 const BusName = styled.div`
-  font-family: 'NanumSquare';
-  font-weight: 700;
-  font-size: 16px;
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-size: 18px;
   margin-top: 10px;
 `;
 

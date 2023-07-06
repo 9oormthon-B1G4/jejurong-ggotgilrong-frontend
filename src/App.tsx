@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/main" element={<MainPage />} />
-          <Route path="/main/:id/book" element={<GuestBookPage />} />
+          <Route path="/main/:routeId/book" element={<GuestBookPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

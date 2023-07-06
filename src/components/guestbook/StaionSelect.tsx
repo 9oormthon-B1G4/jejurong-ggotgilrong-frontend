@@ -1,16 +1,19 @@
 import styled from 'styled-components';
+import { BusStop } from '@pages/Guestbook';
 
 interface propsType {
   setSelectedStation: React.Dispatch<React.SetStateAction<number>>;
+  busstops: BusStop[];
 }
-export const StationSelect = ({ setSelectedStation }: propsType) => {
+export const StationSelect = ({ setSelectedStation, busstops }: propsType) => {
   const handleChangeSelectBox = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedStation(Number(e.currentTarget.value));
   };
   return (
     <SelectBox onChange={handleChangeSelectBox}>
-      <StationOption value={1}>정류장 1</StationOption>
-      <StationOption value={2}>정류장 2</StationOption>
+      {busstops.map((el) => {
+        return <StationOption value={el.busStopId}>{el.name}</StationOption>;
+      })}
     </SelectBox>
   );
 };
