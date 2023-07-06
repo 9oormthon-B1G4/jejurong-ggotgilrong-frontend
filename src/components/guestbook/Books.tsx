@@ -65,7 +65,7 @@ export const Books = ({ setIsOpenWrite }: propsType) => {
 
 const BooksContainer = styled.div`
   margin-top: 120px;
-  padding: 2%;
+  padding: 0 2% 2%;
 
   position: relative;
   height: calc(100% - 120px);

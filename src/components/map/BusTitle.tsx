@@ -26,7 +26,7 @@ const BusTitleContainer = styled.span`
   font-family: 'Pretendard';
   font-size: 14px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
 
   & > img {

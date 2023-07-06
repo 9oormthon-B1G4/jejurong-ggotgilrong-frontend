@@ -25,13 +25,15 @@ export const Post = ({ setIsOpenDetailModal, setIdx, idx }: propsType) => {
         </Icon_Box>
         <TextBox>
           <div className="comment">
-            커피맛집, 인생 커피를 찾았어요. 커피맛집, 인생 커피를
+            커피맛집, 인생커피를 찾았어요. 커피맛집, 인생 커피를
             찾았어요.커피맛집, 인생 커피를 찾았어요.커피맛집, 인생 커피를
             찾았어요.커피맛집, 인생 커피를 찾았어요.커피맛집, 인생 커피를
             찾았어요.
           </div>
-          <div className="date">2023.07.07</div>
-          <div className="nickname">멘도롱또똣</div>
+          <div>
+            <div className="date">2023.07.07</div>
+            <div className="nickname">멘도롱또똣</div>
+          </div>
         </TextBox>
         <Icon_Box_Bottom>
           <img
@@ -98,8 +100,7 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-
+  justify-content: space-between;
   font-family: 'Pretendard';
   font-weight: 400;
   text-align: center;
@@ -108,16 +109,17 @@ const TextBox = styled.div`
 
   div.comment {
     width: 100%;
-    height: 50px;
+    height: 40px;
     font-size: 12px;
     line-height: 16px;
     color: ${({ theme }) => theme.colors.gray_900};
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    padding-top: 6px;
 
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-word;
   }

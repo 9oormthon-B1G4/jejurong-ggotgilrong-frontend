@@ -3,10 +3,12 @@ import ThemeBox from './ThemeBox';
 import QuestBookBox from './QuestBookBox';
 import useSlider, { SCROLL_SIZE } from 'src/hooks/useSlider';
 import LocalPlaceBox from './LocalPlaceBox';
+import { useThemeContext } from 'src/hooks/useTheme';
 
 const BottomSheet = () => {
   const { tabPosition, handleTouchStart, handleTouchMove, handleTouchEnd } =
     useSlider();
+  const { activeTab, busLineData } = useThemeContext();
 
   return (
     <BottomSheetContainer
@@ -26,9 +28,12 @@ const BottomSheet = () => {
         $isScroll={tabPosition === SCROLL_SIZE.top}
         $bottomHeight={-window.innerHeight * 0.4}
       >
-        <QuestBookBox id={1} />
+        <QuestBookBox
+          id={activeTab}
+          questData={busLineData.guestBookPreviewResponses}
+        />
         <ContentDivider />
-        <LocalPlaceBox />
+        <LocalPlaceBox placeData={busLineData.recommendedPlaceResponses} />
       </ContentsBox>
     </BottomSheetContainer>
   );

@@ -8,7 +8,7 @@ const ThemeBox = () => {
   return (
     <ThemeBoxContainer>
       <SheetHeader>
-        <h1>테마버스 6</h1>
+        <h1>테마버스 {landingData.length}</h1>
       </SheetHeader>
       <ThemeItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
@@ -51,12 +51,11 @@ const SheetHeader = styled.div`
 
   & > h1 {
     padding-top: 3px;
-
     color: var(--gray-900, #222);
-    font-family: 'NanumSquare Neo OTF';
-    font-size: 16px;
+    font-family: 'Pretendard';
+    font-size: 18px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 600;
     line-height: 22px;
   }
 `;
@@ -87,10 +86,10 @@ const ThemeInfoBox = styled.div`
 
   & > h2 {
     color: var(--gray-900, #222);
-    font-family: 'NanumSquare Neo OTF';
+    font-family: 'Pretendard';
     font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 18px;
   }
 
