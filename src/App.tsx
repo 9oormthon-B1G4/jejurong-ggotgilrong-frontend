@@ -24,7 +24,7 @@ function App() {
             path={staticServerUri + '/main/:routeId/book'}
             element={<GuestBookPage />}
           />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path={staticServerUri + '*'} element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
