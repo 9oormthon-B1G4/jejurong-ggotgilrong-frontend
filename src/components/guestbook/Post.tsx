@@ -2,14 +2,15 @@ import styled from 'styled-components';
 
 interface propsType {
   setIsOpenDetailModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setRandomId: React.Dispatch<React.SetStateAction<number>>;
+  setIdx: React.Dispatch<React.SetStateAction<number>>;
+  idx: number;
 }
-export const Post = ({ setIsOpenDetailModal, setRandomId }: propsType) => {
-  const random_id = Math.floor(Math.random() * 6) + 1;
+export const Post = ({ setIsOpenDetailModal, setIdx, idx }: propsType) => {
+  const random_id = idx % 6;
 
   const handleClickPost = () => {
     setIsOpenDetailModal(true);
-    setRandomId(random_id);
+    setIdx(random_id);
   };
 
   return (
@@ -18,7 +19,7 @@ export const Post = ({ setIsOpenDetailModal, setRandomId }: propsType) => {
         <Icon_Box>
           <img
             src={
-              import.meta.env.BASE_URL + './icon/post_' + random_id + '_1.svg'
+              import.meta.env.BASE_URL + './icon/post_' + (idx % 6) + '_1.svg'
             }
           />
         </Icon_Box>
@@ -35,7 +36,7 @@ export const Post = ({ setIsOpenDetailModal, setRandomId }: propsType) => {
         <Icon_Box_Bottom>
           <img
             src={
-              import.meta.env.BASE_URL + './icon/post_' + random_id + '_2.svg'
+              import.meta.env.BASE_URL + './icon/post_' + (idx % 6) + '_2.svg'
             }
           />
         </Icon_Box_Bottom>

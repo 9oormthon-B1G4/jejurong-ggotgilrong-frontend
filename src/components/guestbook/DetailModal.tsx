@@ -6,7 +6,7 @@ interface propsType {
   comment: string;
   date: string;
   nickname: string;
-  randomId: number;
+  idx: number;
 }
 
 export const DetailModal = ({
@@ -15,7 +15,7 @@ export const DetailModal = ({
   comment,
   date,
   nickname,
-  randomId,
+  idx,
 }: propsType) => {
   const openModalHandler = () => {
     setIsOpen(!isOpen);
@@ -27,12 +27,7 @@ export const DetailModal = ({
           <ModalView onClick={(e: any) => e.stopPropagation()}>
             <TopImgContainer>
               <img
-                src={
-                  import.meta.env.BASE_URL +
-                  './icon/post_' +
-                  randomId +
-                  '_1.svg'
-                }
+                src={import.meta.env.BASE_URL + './icon/post_' + idx + '_1.svg'}
               />
             </TopImgContainer>
             <Comment>{comment}</Comment>
@@ -42,12 +37,7 @@ export const DetailModal = ({
             </Info>
             <BottomImgContainer>
               <img
-                src={
-                  import.meta.env.BASE_URL +
-                  './icon/post_' +
-                  randomId +
-                  '_2.svg'
-                }
+                src={import.meta.env.BASE_URL + './icon/post_' + idx + '_2.svg'}
               />
             </BottomImgContainer>
           </ModalView>

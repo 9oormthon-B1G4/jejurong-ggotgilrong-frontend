@@ -10,7 +10,7 @@ interface propsType {
 }
 export const Books = ({ setIsOpenWrite }: propsType) => {
   const [isOpenDetailModal, setIsOpenDetailModal] = useState<boolean>(false);
-  const [randomId, setRandomId] = useState<number>(0);
+  const [idx, setIdx] = useState<number>(0);
 
   return (
     <>
@@ -23,57 +23,40 @@ export const Books = ({ setIsOpenWrite }: propsType) => {
             찾았어요."
         date="2023.07.07"
         nickname="멘도롱또똣"
-        randomId={randomId}
+        idx={idx}
       />
       <BooksContainer>
         <Post
           setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
+          setIdx={setIdx}
+          idx={0}
         />
         <Post
           setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
+          setIdx={setIdx}
+          idx={1}
         />
         <Post
           setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
+          setIdx={setIdx}
+          idx={2}
         />
         <Post
           setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
+          setIdx={setIdx}
+          idx={3}
         />
         <Post
           setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
+          setIdx={setIdx}
+          idx={4}
         />
         <Post
           setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
+          setIdx={setIdx}
+          idx={5}
         />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setRandomId={setRandomId}
-        />
+
         <WriteBtn setIsOpenWrite={setIsOpenWrite} />
       </BooksContainer>
     </>
