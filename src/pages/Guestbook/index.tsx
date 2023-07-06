@@ -1,3 +1,11 @@
+import { Header } from '@components/guestbook/Header';
+import { Stations } from '@components/guestbook/Stations';
+
 export const GuestBookPage = () => {
-  return <div>방명록 페이지</div>;
+  return (
+    <>
+      <Header />
+      <Stations />
+    </>
+  );
 };
