@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 
 export const SCROLL_SIZE = {
-  top: Math.floor(-window.innerHeight * 0.5),
-  minTop: Math.floor(-window.innerHeight * 0.4),
-  minBottom: 50,
+  top: Math.floor(-window.innerHeight + 450),
+  minTop: Math.floor(-window.innerHeight + 550),
+  minBottom: -100,
 };
 
 export interface ReactContextValueProps {
@@ -34,8 +34,6 @@ const useSlider = () => {
         const dragDistance = event.touches[0].clientY - dragStartY;
         const distance = Math.floor(currentPositionRef.current + dragDistance);
 
-        console.log(SCROLL_SIZE.minTop, SCROLL_SIZE.top, window.innerHeight);
-
         if (distance <= 0) {
           if (tabPosition >= SCROLL_SIZE.top) {
             setTabPosition(distance);
@@ -50,6 +48,10 @@ const useSlider = () => {
     // 맥스 사이즈일때
     if (tabPosition <= SCROLL_SIZE.minTop) {
       setTabPosition(SCROLL_SIZE.top);
+    }
+
+    if (tabPosition >= SCROLL_SIZE.minBottom) {
+      setTabPosition(0);
     }
   };
 

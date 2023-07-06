@@ -4,12 +4,25 @@ interface QuestBookItemProps {
   contents: string;
   station: string;
   onClick: () => void;
+  idx: number;
 }
 
-const QuestBookItem = ({ contents, station, onClick }: QuestBookItemProps) => {
+const QuestBookItem = ({
+  contents,
+  station,
+  onClick,
+  idx,
+}: QuestBookItemProps) => {
+  const topIcon = `icon/sm_post_${idx + 1}_1.svg`;
+  const bottomIcon = `icon/sm_post_${idx + 1}_2.svg`;
+
   return (
-    <QuestBookItemContainer onClick={onClick}>
-      {contents}
+    <QuestBookItemContainer
+      onClick={onClick}
+      $bottomIcon={bottomIcon}
+      $topIcon={topIcon}
+    >
+      <p>{contents}</p>
       <span>{station}</span>
     </QuestBookItemContainer>
   );
@@ -17,7 +30,10 @@ const QuestBookItem = ({ contents, station, onClick }: QuestBookItemProps) => {
 
 export default QuestBookItem;
 
-const QuestBookItemContainer = styled.li`
+const QuestBookItemContainer = styled.li<{
+  $topIcon: string;
+  $bottomIcon: string;
+}>`
   display: flex;
   align-items: center;
   position: relative;
@@ -26,13 +42,19 @@ const QuestBookItemContainer = styled.li`
   height: 106px;
   border-radius: 10px;
   background: var(--gray-100, #f5f5f5);
-  color: var(--gray-900, #222);
 
-  font-family: Pretendard;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  & > p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    z-index: 99;
+
+    color: var(--gray-900, #222);
+    font-family: 'Pretendard';
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 
   &:first-child {
     margin-left: 16px;
@@ -49,7 +71,7 @@ const QuestBookItemContainer = styled.li`
     right: 8px;
     height: 24px;
     width: 24px;
-    background-image: url('icon/bus_color_icon.svg');
+    background-image: ${({ $topIcon }) => `url(${$topIcon})`};
   }
 
   &::after {
@@ -59,16 +81,20 @@ const QuestBookItemContainer = styled.li`
     bottom: 8px;
     height: 24px;
     width: 24px;
-    background-image: url('icon/bus_color_icon.svg');
+    background-image: ${({ $bottomIcon }) => `url(${$bottomIcon})`};
   }
 
   & > span {
     position: absolute;
     right: 8px;
     bottom: 8px;
+    width: 60px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     color: var(--gray-500, #9e9e9e);
-    font-family: Pretendard;
+    font-family: 'Pretendard';
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
