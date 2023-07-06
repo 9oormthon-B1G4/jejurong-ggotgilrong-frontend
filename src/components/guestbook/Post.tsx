@@ -107,9 +107,9 @@ const TextBox = styled.div`
 
   div.comment {
     width: 100%;
-    height: 40px;
+    height: 50px;
     font-size: 12px;
-    line-height: 14px;
+    line-height: 16px;
     color: ${({ theme }) => theme.colors.gray_900};
     margin-bottom: 20px;
 

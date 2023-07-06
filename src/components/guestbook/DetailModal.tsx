@@ -98,6 +98,7 @@ const Comment = styled.div`
   padding: 16px;
 
   font-size: 16px;
+  line-height: 22px;
   font-family: 'Pretendard';
   font-weight: 400;
   color: ${({ theme }) => theme.colors.gray_700};
