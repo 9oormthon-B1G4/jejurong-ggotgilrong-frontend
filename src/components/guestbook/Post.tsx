@@ -109,8 +109,7 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-
+  justify-content: space-between;
   font-family: 'Pretendard';
   font-weight: 400;
   text-align: center;
@@ -119,7 +118,7 @@ const TextBox = styled.div`
 
   div.comment {
     width: 100%;
-    height: 50px;
+    height: 40px;
     font-size: 12px;
     line-height: 16px;
     color: ${({ theme }) => theme.colors.gray_900};
@@ -128,7 +127,7 @@ const TextBox = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-break: break-word;
   }

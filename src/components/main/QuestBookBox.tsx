@@ -1,36 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import QuestBookItem from './QuestBookItem';
+import { GuestBookResponse } from '@api/api';
 
-const arr = [
-  {
-    contents:
-      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
-    station: '어디서나 정류장',
-  },
-  {
-    contents:
-      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
-    station: '어디서나 정류장',
-  },
-  {
-    contents:
-      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
-    station: '어디서나 정류장',
-  },
-  {
-    contents:
-      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
-    station: '어디서나 정류장',
-  },
-  {
-    contents:
-      '커피맛집, 인생 커피를 찾았어요요요요요요요.1231231231231312312312xs',
-    station: '어디서나 정류장',
-  },
-];
+interface QuestBookBoxProps {
+  id: number;
+  questData: GuestBookResponse[];
+}
 
-const QuestBookBox = ({ id }: { id: number }) => {
+const QuestBookBox = ({ id, questData }: QuestBookBoxProps) => {
   const navigate = useNavigate();
 
   const handleMoveBook = (id: number) => {
@@ -40,7 +18,7 @@ const QuestBookBox = ({ id }: { id: number }) => {
   return (
     <QuestBookBoxCotainer>
       <QuestBookHeader>
-        <h1>방명록</h1>{' '}
+        <h1>방명록</h1>
         <div onClick={() => handleMoveBook(id)}>
           <span>전체보기 </span>
           <svg
@@ -63,13 +41,13 @@ const QuestBookBox = ({ id }: { id: number }) => {
       <QuestBookItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
       >
-        {arr.map((item, idx) => (
+        {questData.map((item, idx) => (
           <QuestBookItem
             key={idx}
             idx={(idx + 1) % 3}
-            contents={item.contents}
-            station={item.station}
-            onClick={() => handleMoveBook(1)}
+            contents={item.content}
+            station={item.busStopName}
+            onClick={() => handleMoveBook(id)}
           />
         ))}
       </QuestBookItemBox>
@@ -85,14 +63,14 @@ const QuestBookHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 16px;
+  padding: 20px 16px 16px;
 
   & > h1 {
     color: var(--gray-900, #222);
-    font-family: 'NanumSquare Neo OTF';
+    font-family: 'Pretendard';
     font-size: 16px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 600;
     line-height: 22px;
   }
 
@@ -116,7 +94,7 @@ const QuestBookHeader = styled.div`
 const QuestBookItemBox = styled.ul`
   display: flex;
   padding: 0;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   align-items: flex-start;
   gap: 8px;
   overflow-x: scroll;

@@ -35,6 +35,7 @@ const Btn = styled.button`
   border: none;
 
   background-color: ${({ theme }) => theme.colors.orange_400};
+  box-shadow: 0px 4px 8px 0px rgba(25, 31, 40, 0.25);
 
   font-family: 'Pretendard';
   font-size: 16px;

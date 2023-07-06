@@ -1,39 +1,24 @@
 import styled from 'styled-components';
 import ThemeTab from './ThemeTab';
-import { useState } from 'react';
-
-const arr = [
-  { id: 1, busNumber: 301 },
-  { id: 2, busNumber: 302 },
-  { id: 3, busNumber: 303 },
-  { id: 4, busNumber: 304 },
-  { id: 5, busNumber: 305 },
-  { id: 6, busNumber: 306 },
-  { id: 7, busNumber: 307 },
-  { id: 8, busNumber: 308 },
-];
+import { useThemeContext } from 'src/hooks/useTheme';
 
 const ThemeBox = () => {
-  const [activeTab, setActivetab] = useState<number>(arr[0].id);
-
-  const handleOnChangeTab = (id: number) => {
-    setActivetab(id);
-  };
+  const { landingData, activeTab, handleOnChangeTab } = useThemeContext();
 
   return (
     <ThemeBoxContainer>
       <SheetHeader>
-        <h1>테마버스 6</h1>
+        <h1>테마버스 {landingData.length}</h1>
       </SheetHeader>
       <ThemeItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
       >
-        {arr.map((item) => (
+        {landingData.map((item) => (
           <ThemeTab
-            key={item.id}
-            busNumber={item.busNumber}
-            isActive={activeTab === item.id}
-            handleOnClick={() => handleOnChangeTab(item.id)}
+            key={item.routeId}
+            busNumber={item.number}
+            isActive={activeTab === item.routeId}
+            handleOnClick={() => handleOnChangeTab(item.routeId)}
           />
         ))}
       </ThemeItemBox>
@@ -66,12 +51,11 @@ const SheetHeader = styled.div`
 
   & > h1 {
     padding-top: 3px;
-
     color: var(--gray-900, #222);
-    font-family: 'NanumSquare Neo OTF';
-    font-size: 16px;
+    font-family: 'Pretendard';
+    font-size: 18px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 600;
     line-height: 22px;
   }
 `;
@@ -102,10 +86,10 @@ const ThemeInfoBox = styled.div`
 
   & > h2 {
     color: var(--gray-900, #222);
-    font-family: 'NanumSquare Neo OTF';
+    font-family: 'Pretendard';
     font-size: 14px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 18px;
   }
 

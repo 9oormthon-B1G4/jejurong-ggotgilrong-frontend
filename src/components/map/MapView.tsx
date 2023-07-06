@@ -1,46 +1,29 @@
 import { CustomOverlayMap, Map } from 'react-kakao-maps-sdk';
 import StationMaker from './StationMaker';
-
-const arr = [
-  {
-    stationName: '정류장',
-    lat: 33.469843,
-    lng: 126.484908,
-    count: 3,
-  },
-  {
-    stationName: '정류장2',
-    lat: 33.474333,
-    lng: 126.483917,
-    count: 5,
-  },
-  {
-    stationName: '정류장3',
-    lat: 33.476389,
-    lng: 126.482141,
-    count: 9,
-  },
-  {
-    stationName: '정류장4',
-    lat: 33.476401,
-    lng: 126.479759,
-    count: 1,
-  },
-  {
-    stationName: '정류장5',
-    lat: 33.478329,
-    lng: 126.475118,
-    count: 8,
-  },
-  {
-    stationName: '정류장6',
-    lat: 33.4823,
-    lng: 126.470383,
-    count: 10,
-  },
-];
+import { useThemeContext } from 'src/hooks/useTheme';
+import { useEffect, useRef } from 'react';
 
 const MapView = () => {
+  const { busLineData } = useThemeContext();
+  const mapRef = useRef<kakao.maps.Map>(null);
+
+  const mapBounds = () => {
+    const bounds = new kakao.maps.LatLngBounds();
+    busLineData.busStopMapResponses.forEach((item) => {
+      console.log(item);
+      bounds.extend(new kakao.maps.LatLng(item.latitude, item.longitude));
+    });
+    return bounds;
+  };
+
+  useEffect(() => {
+    if (mapRef.current) {
+      console.log(mapRef.current);
+      const bounds = mapBounds();
+      mapRef.current.setBounds(bounds);
+    }
+  }, [mapRef.current]);
+
   return (
     <div>
       <Map
@@ -48,13 +31,14 @@ const MapView = () => {
         level={3}
         isPanto={true}
         style={{ width: '100%', height: 'calc(100vh - 350px)' }}
+        ref={mapRef}
       >
-        {arr.map((item) => (
+        {busLineData.busStopMapResponses.map((item) => (
           <CustomOverlayMap
-            key={item.stationName}
-            position={{ lat: item.lat, lng: item.lng }}
+            key={item.name}
+            position={{ lat: item.latitude, lng: item.longitude }}
           >
-            <StationMaker stationName={item.stationName} count={item.count} />
+            <StationMaker stationName={item.name} count={item.guestBookCount} />
           </CustomOverlayMap>
         ))}
       </Map>

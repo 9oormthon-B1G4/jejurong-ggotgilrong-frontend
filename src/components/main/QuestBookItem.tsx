@@ -13,8 +13,8 @@ const QuestBookItem = ({
   onClick,
   idx,
 }: QuestBookItemProps) => {
-  const topIcon = `icon/sm_post_${idx + 1}_1.svg`;
-  const bottomIcon = `icon/sm_post_${idx + 1}_2.svg`;
+  const topIcon = `/icon/sm_post_${idx + 1}_1.svg`;
+  const bottomIcon = `/icon/sm_post_${idx + 1}_2.svg`;
 
   return (
     <QuestBookItemContainer
@@ -34,9 +34,10 @@ const QuestBookItemContainer = styled.li<{
   $topIcon: string;
   $bottomIcon: string;
 }>`
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: center;
   padding: 16px;
   min-width: 106px;
   height: 106px;
@@ -44,8 +45,11 @@ const QuestBookItemContainer = styled.li<{
   background: var(--gray-100, #f5f5f5);
 
   & > p {
+    display: -webkit-box;
     text-overflow: ellipsis;
     overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     z-index: 99;
 
     color: var(--gray-900, #222);
@@ -70,8 +74,10 @@ const QuestBookItemContainer = styled.li<{
     top: 8px;
     right: 8px;
     height: 24px;
-    width: 24px;
+    width: fit-content;
+    min-width: 24px;
     background-image: ${({ $topIcon }) => `url(${$topIcon})`};
+    background-repeat: no-repeat;
   }
 
   &::after {
@@ -80,8 +86,10 @@ const QuestBookItemContainer = styled.li<{
     left: 8px;
     bottom: 8px;
     height: 24px;
-    width: 24px;
+    width: fit-content;
+    min-width: 24px;
     background-image: ${({ $bottomIcon }) => `url(${$bottomIcon})`};
+    background-repeat: no-repeat;
   }
 
   & > span {

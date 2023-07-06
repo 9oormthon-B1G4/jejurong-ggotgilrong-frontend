@@ -1,56 +1,23 @@
 import { styled } from 'styled-components';
 import PlaceItem from './PlaceItem';
+import { RecommendedPlaceResponse } from '@api/api';
 
-const arr = [
-  {
-    id: 1,
-    title: '추천명1',
-    desc: '안녕하세요 환영합니다',
-    url: 'https://naver.com',
-    src: 'test_img.png',
-  },
-  {
-    id: 2,
-    title: '추천명2',
-    desc: '안녕하세요 환영합니다',
-    url: 'https://naver.com',
-    src: 'test_img.png',
-  },
-  {
-    id: 3,
-    title: '추천명3',
-    desc: '안녕하세요 환영합니다',
-    url: 'https://naver.com',
-    src: 'test_img.png',
-  },
-  {
-    id: 4,
-    title: '추천명4',
-    desc: '안녕하세요 환영합니다',
-    url: 'https://naver.com',
-    src: 'test_img.png',
-  },
-  {
-    id: 5,
-    title: '추천명5',
-    desc: '안녕하세요 환영합니다',
-    url: 'https://naver.com',
-    src: 'https://via.placeholder.com/343x228',
-  },
-];
-
-const LocalPlaceBox = () => {
+const LocalPlaceBox = ({
+  placeData,
+}: {
+  placeData: RecommendedPlaceResponse[];
+}) => {
   return (
     <LocalPlaceBoxContiner>
       <h1>이 근처 추천 장소</h1>
       <PlaceItemBox>
-        {arr.map((item) => (
+        {placeData.map((item) => (
           <PlaceItem
-            key={item.id}
-            title={item.title}
-            desc={item.desc}
+            key={item.address}
+            title={item.name}
+            desc={item.description}
             url={item.url}
-            src={item.src}
+            src={item.image}
             stationName="정류장"
           />
         ))}
@@ -62,14 +29,14 @@ const LocalPlaceBox = () => {
 export default LocalPlaceBox;
 
 const LocalPlaceBoxContiner = styled.div`
-  padding: 8px 16px 17px;
+  padding: 20px 16px 17px;
 
   & > h1 {
     color: var(--gray-900, #222);
-    font-family: 'NanumSquare Neo OTF';
+    font-family: 'Pretendard';
     font-size: 16px;
     font-style: normal;
-    font-weight: 550;
+    font-weight: 600;
     line-height: 22px;
   }
 `;
@@ -78,5 +45,5 @@ const PlaceItemBox = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 17px;
-  gap: 24px;
+  gap: 16px;
 `;
