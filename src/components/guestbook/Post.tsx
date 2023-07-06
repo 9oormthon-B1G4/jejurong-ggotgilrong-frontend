@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 
-export const Post = () => {
+interface propsType {
+  setIsOpenDetailModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setRandomId: React.Dispatch<React.SetStateAction<number>>;
+}
+export const Post = ({ setIsOpenDetailModal, setRandomId }: propsType) => {
   const random_id = Math.floor(Math.random() * 6) + 1;
 
+  const handleClickPost = () => {
+    setIsOpenDetailModal(true);
+    setRandomId(random_id);
+  };
+
   return (
-    <PostContainer>
+    <PostContainer onClick={handleClickPost}>
       <Content>
         <Icon_Box>
           <img
@@ -38,7 +47,7 @@ export const Post = () => {
 const PostContainer = styled.div`
   width: 45%;
   border-radius: 10px;
-  margin: 8px 0;
+  margin: 8px;
   position: relative;
 
   background-color: ${({ theme }) => theme.colors.gray_100};
@@ -47,6 +56,10 @@ const PostContainer = styled.div`
     content: '';
     display: block;
     padding-bottom: 100%;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 

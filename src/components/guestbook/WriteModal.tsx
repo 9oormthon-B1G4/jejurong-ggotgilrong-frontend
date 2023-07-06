@@ -32,6 +32,7 @@ export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
               onChange={(e: any) => {
                 setInputText(e.target.value);
               }}
+              maxLength={120}
             ></ModalInputBox>
             <CreateBtn
               className={inputText.length > 0 ? 'enable' : ''}
