@@ -1,38 +1,45 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { BusStop } from '@pages/Guestbook';
 
-const stationList: String[] = [
-  '전체',
-  '정류장1',
-  '정류장2',
-  '정류장3',
-  '정류장4',
-  '정류장5',
-  '정류장6',
-];
+interface propsType {
+  selectedBusStop: number;
+  setSelectedBusStop: React.Dispatch<React.SetStateAction<number>>;
+  stationList: BusStop[];
+}
 
-export const Stations = () => {
-  const [selectedIdx, setSelecteIdx] = useState<number>(0);
-
-  const handleClickChip = (idx: number) => {
-    setSelecteIdx(idx);
+export const Stations = ({
+  selectedBusStop,
+  setSelectedBusStop,
+  stationList,
+}: propsType) => {
+  const handleClickChip = (busStopId: number) => {
+    setSelectedBusStop(busStopId);
   };
 
   return (
     <StationsContainer>
-      {stationList.map((el, idx) => {
-        return (
-          <StationChip
-            key={idx}
-            className={selectedIdx === idx ? 'selected' : ''}
-            onClick={() => {
-              handleClickChip(idx);
-            }}
-          >
-            {el}
-          </StationChip>
-        );
-      })}
+      <StationChip
+        className={selectedBusStop === 0 ? 'selected' : ''}
+        onClick={() => {
+          handleClickChip(0);
+        }}
+      >
+        전체
+      </StationChip>
+      {stationList &&
+        stationList?.map((el) => {
+          return (
+            <StationChip
+              key={el.busStopId}
+              className={selectedBusStop === el.busStopId ? 'selected' : ''}
+              onClick={() => {
+                handleClickChip(el.busStopId);
+              }}
+            >
+              {el.name}
+            </StationChip>
+          );
+        })}
     </StationsContainer>
   );
 };
@@ -63,11 +70,16 @@ const StationChip = styled.div`
   height: 28px;
   padding: 0 12px;
 
-  font-family: 'NanumSquare';
-  font-size: 14px;
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-size: 16px;
+  font-weight: 500;
   line-height: 28px;
   color: ${({ theme }) => theme.colors.gray_300};
+
+  &:hover {
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.orange_400};
+  }
 
   &.selected {
     color: ${({ theme }) => theme.colors.white};
@@ -75,9 +87,5 @@ const StationChip = styled.div`
     border-radius: 116px;
 
     text-align: center;
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 `;

@@ -5,10 +5,14 @@ import { WriteBtn } from '@components/guestbook/WriteBtn';
 import { Post } from '@components/guestbook/Post';
 import { DetailModal } from '@components/guestbook/DetailModal';
 
+import { Book } from '@pages/Guestbook';
+
 interface propsType {
   setIsOpenWrite: React.Dispatch<React.SetStateAction<boolean>>;
+  books: Book[];
 }
-export const Books = ({ setIsOpenWrite }: propsType) => {
+
+export const Books = ({ setIsOpenWrite, books }: propsType) => {
   const [isOpenDetailModal, setIsOpenDetailModal] = useState<boolean>(false);
   const [idx, setIdx] = useState<number>(0);
 
@@ -17,45 +21,26 @@ export const Books = ({ setIsOpenWrite }: propsType) => {
       <DetailModal
         isOpen={isOpenDetailModal}
         setIsOpen={setIsOpenDetailModal}
-        comment="커피맛집, 인생 커피를 찾았어요. 커피맛집, 인생 커피를
-            찾았어요.커피맛집, 인생 커피를 찾았어요.커피맛집, 인생 커피를
-            찾았어요.커피맛집, 인생 커피를 찾았어요.커피맛집, 인생 커피를
-            찾았어요."
-        date="2023.07.07"
-        nickname="멘도롱또똣"
+        comment={books[idx]?.content}
+        date={books[idx]?.createdDate}
+        nickname={books[idx]?.author}
         idx={idx}
       />
       <BooksContainer>
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setIdx={setIdx}
-          idx={0}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setIdx={setIdx}
-          idx={1}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setIdx={setIdx}
-          idx={2}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setIdx={setIdx}
-          idx={3}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setIdx={setIdx}
-          idx={4}
-        />
-        <Post
-          setIsOpenDetailModal={setIsOpenDetailModal}
-          setIdx={setIdx}
-          idx={5}
-        />
+        {books &&
+          books?.map((el, idx) => {
+            return (
+              <Post
+                key={idx}
+                setIsOpenDetailModal={setIsOpenDetailModal}
+                setIdx={setIdx}
+                idx={idx}
+                comment={el.content}
+                date={el.createdDate}
+                nickname={el.author}
+              />
+            );
+          })}
 
         <WriteBtn setIsOpenWrite={setIsOpenWrite} />
       </BooksContainer>

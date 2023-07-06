@@ -32,7 +32,7 @@ export const DetailModal = ({
             </TopImgContainer>
             <Comment>{comment}</Comment>
             <Info>
-              <div className="date">{date}</div>
+              <div className="date">{date.replace(/-/g, '.')}</div>
               <div className="nickname">{nickname}</div>
             </Info>
             <BottomImgContainer>
@@ -108,7 +108,7 @@ const Info = styled.div`
   }
 
   div.nickname {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 

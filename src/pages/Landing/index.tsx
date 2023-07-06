@@ -15,8 +15,8 @@ export const LandingPage = () => {
         <div>꽃길롱</div>
       </MainLogo>
       <ExplainText>
-        <div>좋았던 장소가 있는 정류장에</div>
-        <div>많은 추억이 있는 곳에 꽃길이 생깁니다</div>
+        <div>정류장 구석구석 꽃을 피워내 보세요.</div>
+        <div>화려한 색감으로 덧칠된 꽃 삼월의 제주처럼</div>
       </ExplainText>
       <MainImgContainer>
         <img src={import.meta.env.BASE_URL + './image/main_img.svg'} />
@@ -34,18 +34,19 @@ const LandingPageContainer = styled.div`
 `;
 
 const MainLogo = styled.div`
-  font-family: 'NanumSquare';
+  font-family: 'NanumSquareRound';
   font-weight: 700;
-  font-size: 28px;
+  font-size: 40px;
   margin: 80px auto 0;
 `;
 
 const ExplainText = styled.div`
   margin: 30px auto;
 
-  font-family: 'NanumSquare';
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-weight: 400;
   font-size: 14px;
+  line-height: 18px;
   color: #616161;
   text-align: center;
 `;
@@ -69,9 +70,9 @@ const StartBtn = styled.button`
   left: 50%;
   margin-left: -175px;
 
-  font-family: 'NanumSquare';
-  font-weight: 700;
-  font-size: 16px;
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-size: 18px;
   color: white;
 
   border: none;

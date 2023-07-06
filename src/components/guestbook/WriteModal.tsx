@@ -1,15 +1,38 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+
+import { axiosInstance } from '@api/axiosInstance';
+import { BusStop } from '@pages/Guestbook';
 import { StationSelect } from './StaionSelect';
 
 interface propsType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  getGuestBooks: () => void;
+  busstops: BusStop[];
 }
 
-export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
+export const WriteModal = ({
+  isOpen,
+  setIsOpen,
+  getGuestBooks,
+  busstops,
+}: propsType) => {
   const [inputText, setInputText] = useState<string>('');
   const [selectedStation, setSelectedStation] = useState<number>(1);
+
+  const postGuestBook = () => {
+    axiosInstance
+      .post(`/api/guest-books/bus-stops/${selectedStation}`, {
+        content: inputText,
+      })
+      .then(() => {
+        getGuestBooks();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const openModalHandler = () => {
     setIsOpen(!isOpen);
@@ -17,7 +40,7 @@ export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
 
   const handleClickCreateBtn = () => {
     if (inputText.length > 0) {
-      console.log('작성완료');
+      postGuestBook();
       setIsOpen(false);
       setInputText('');
     }
@@ -29,7 +52,10 @@ export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
         <ModalBackdrop onClick={openModalHandler}>
           <ModalView onClick={(e: any) => e.stopPropagation()}>
             <ModalHeader>방명록 작성하기</ModalHeader>
-            <StationSelect setSelectedStation={setSelectedStation} />
+            <StationSelect
+              busstops={busstops}
+              setSelectedStation={setSelectedStation}
+            />
             <ModalInputBox
               value={inputText}
               onChange={(e: any) => {
@@ -79,9 +105,9 @@ const ModalView = styled.div`
 
 const ModalHeader = styled.div`
   height: 48px;
-  font-family: 'NanumSquare';
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-size: 18px;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.gray_900};
   line-height: 48px;
   text-align: center;
@@ -97,8 +123,11 @@ const ModalInputBox = styled.textarea`
   border-radius: 10px;
 
   font-family: 'Pretendard';
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
 
+  color: ${({ theme }) => theme.colors.gray_900};
   background-color: ${({ theme }) => theme.colors.gray_100};
 `;
 
@@ -114,9 +143,9 @@ const CreateBtn = styled.button`
   right: 0;
   bottom: 0;
 
-  font-family: 'NanumSquare';
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pretendard';
+  font-size: 18px;
+  font-weight: 500;
   color: white;
 
   &:hover.enable {
