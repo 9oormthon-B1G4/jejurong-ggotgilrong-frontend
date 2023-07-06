@@ -86,6 +86,10 @@ const Icon_Box_Bottom = styled.div`
   height: 30px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  img {
+    height: 15px;
+  }
 `;
 
 const TextBox = styled.div`
