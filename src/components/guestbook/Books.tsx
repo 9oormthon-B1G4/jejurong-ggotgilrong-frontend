@@ -27,19 +27,20 @@ export const Books = ({ setIsOpenWrite, books }: propsType) => {
         idx={idx}
       />
       <BooksContainer>
-        {books?.map((el, idx) => {
-          return (
-            <Post
-              key={idx}
-              setIsOpenDetailModal={setIsOpenDetailModal}
-              setIdx={setIdx}
-              idx={idx}
-              comment={el.content}
-              date={el.createdDate}
-              nickname={el.author}
-            />
-          );
-        })}
+        {books &&
+          books?.map((el, idx) => {
+            return (
+              <Post
+                key={idx}
+                setIsOpenDetailModal={setIsOpenDetailModal}
+                setIdx={setIdx}
+                idx={idx}
+                comment={el.content}
+                date={el.createdDate}
+                nickname={el.author}
+              />
+            );
+          })}
 
         <WriteBtn setIsOpenWrite={setIsOpenWrite} />
       </BooksContainer>

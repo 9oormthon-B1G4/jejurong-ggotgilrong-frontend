@@ -11,9 +11,10 @@ export const StationSelect = ({ setSelectedStation, busstops }: propsType) => {
   };
   return (
     <SelectBox onChange={handleChangeSelectBox}>
-      {busstops?.map((el) => {
-        return <StationOption value={el.busStopId}>{el.name}</StationOption>;
-      })}
+      {busstops &&
+        busstops?.map((el) => {
+          return <StationOption value={el.busStopId}>{el.name}</StationOption>;
+        })}
     </SelectBox>
   );
 };

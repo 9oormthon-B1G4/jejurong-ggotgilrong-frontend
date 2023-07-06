@@ -26,19 +26,20 @@ export const Stations = ({
       >
         전체
       </StationChip>
-      {stationList?.map((el) => {
-        return (
-          <StationChip
-            key={el.busStopId}
-            className={selectedBusStop === el.busStopId ? 'selected' : ''}
-            onClick={() => {
-              handleClickChip(el.busStopId);
-            }}
-          >
-            {el.name}
-          </StationChip>
-        );
-      })}
+      {stationList &&
+        stationList?.map((el) => {
+          return (
+            <StationChip
+              key={el.busStopId}
+              className={selectedBusStop === el.busStopId ? 'selected' : ''}
+              onClick={() => {
+                handleClickChip(el.busStopId);
+              }}
+            >
+              {el.name}
+            </StationChip>
+          );
+        })}
     </StationsContainer>
   );
 };
