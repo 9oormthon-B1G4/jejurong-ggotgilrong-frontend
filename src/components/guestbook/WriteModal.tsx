@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { StationSelect } from './StaionSelect';
 
 interface propsType {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface propsType {
 
 export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
   const [inputText, setInputText] = useState<string>('');
+  const [selectedStation, setSelectedStation] = useState<number>(1);
 
   const openModalHandler = () => {
     setIsOpen(!isOpen);
@@ -27,6 +29,7 @@ export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
         <ModalBackdrop onClick={openModalHandler}>
           <ModalView onClick={(e: any) => e.stopPropagation()}>
             <ModalHeader>방명록 작성하기</ModalHeader>
+            <StationSelect setSelectedStation={setSelectedStation} />
             <ModalInputBox
               value={inputText}
               onChange={(e: any) => {
@@ -38,7 +41,7 @@ export const WriteModal = ({ isOpen, setIsOpen }: propsType) => {
               className={inputText.length > 0 ? 'enable' : ''}
               onClick={handleClickCreateBtn}
             >
-              완료
+              업로드
             </CreateBtn>
           </ModalView>
         </ModalBackdrop>
@@ -67,6 +70,11 @@ const ModalView = styled.div`
   margin-bottom: 120px;
   background-color: white;
   border-radius: 8px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ModalHeader = styled.div`
@@ -77,18 +85,21 @@ const ModalHeader = styled.div`
   color: ${({ theme }) => theme.colors.gray_900};
   line-height: 48px;
   text-align: center;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.gray_300};
 `;
 
 const ModalInputBox = styled.textarea`
-  width: 100%;
-  height: 236px;
+  width: 300px;
+  height: 150px;
   border: none;
   outline: none;
+  margin-top: 18px;
   padding: 16px;
+  border-radius: 10px;
 
   font-family: 'Pretendard';
   font-size: 13px;
+
+  background-color: ${({ theme }) => theme.colors.gray_100};
 `;
 
 const CreateBtn = styled.button`
@@ -97,6 +108,11 @@ const CreateBtn = styled.button`
   background-color: ${({ theme }) => theme.colors.gray_300};
   border: none;
   border-radius: 0 0 8px 8px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   font-family: 'NanumSquare';
   font-size: 16px;
