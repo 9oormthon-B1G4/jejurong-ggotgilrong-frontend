@@ -27,7 +27,7 @@ export const Books = ({ setIsOpenWrite, books }: propsType) => {
         idx={idx}
       />
       <BooksContainer>
-        {books.map((el, idx) => {
+        {books?.map((el, idx) => {
           return (
             <Post
               key={idx}

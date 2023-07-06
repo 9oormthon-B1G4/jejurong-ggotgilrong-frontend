@@ -40,7 +40,7 @@ export const GuestBookPage = () => {
     axiosInstance
       .get('/api/routes')
       .then((res) => {
-        res.data.map((el: Route) => {
+        res?.data?.map((el: Route) => {
           if (el.routeId === Number(routeId)) {
             setRoute(el);
           }
