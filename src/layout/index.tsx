@@ -33,6 +33,6 @@ const LayoutContainer = styled.div`
   width: 100%;
   max-width: 460px;
   height: 100vh;
-  height: calc(var(—vh, 1vh) * 100);
+  height: calc(var(—-vh, 1vh) * 100);
   margin: 0px auto;
 `;
