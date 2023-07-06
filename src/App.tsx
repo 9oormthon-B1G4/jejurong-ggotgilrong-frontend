@@ -8,6 +8,8 @@ import { LandingPage } from '@pages/Landing';
 import { NotFoundPage } from '@pages/NotFound';
 import { Layout } from '@layout/index';
 
+const staticServerUri = import.meta.env.VITE_REACT_APP_PATH || '';
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,9 +17,12 @@ function App() {
       <GlobalFonts />
       <Layout>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/main" element={<MainPage />} />
-          <Route path="/main/:routeId/book" element={<GuestBookPage />} />
+          <Route path={staticServerUri + '/'} element={<LandingPage />} />
+          <Route path={staticServerUri + '/main'} element={<MainPage />} />
+          <Route
+            path={staticServerUri + '/main/:routeId/book'}
+            element={<GuestBookPage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
