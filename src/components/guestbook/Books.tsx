@@ -68,7 +68,7 @@ const BooksContainer = styled.div`
   padding: 2%;
 
   position: relative;
-  height: calc(100% - 160px);
+  height: calc(100% - 120px);
 
   overflow-y: scroll;
   &::-webkit-scrollbar {
