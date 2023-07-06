@@ -37,7 +37,7 @@ const MainLogo = styled.div`
   font-family: 'NanumSquare';
   font-weight: 700;
   font-size: 28px;
-  margin: 120px auto 0;
+  margin: 80px auto 0;
 `;
 
 const ExplainText = styled.div`
@@ -57,7 +57,7 @@ const MainImgContainer = styled.div`
   justify-content: center;
   margin-top: 30px;
   img {
-    width: 60%;
+    width: 80%;
   }
 `;
 
