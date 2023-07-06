@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 
-const SCROLL_SIZE = {
-  top: -450,
-  minTop: -400,
+export const SCROLL_SIZE = {
+  top: Math.floor(-window.innerHeight * 0.5),
+  minTop: Math.floor(-window.innerHeight * 0.4),
   minBottom: 50,
 };
 
@@ -32,9 +32,14 @@ const useSlider = () => {
     if (Number(document.querySelector('.contentsBox')?.scrollTop) === 0) {
       if (isDragging) {
         const dragDistance = event.touches[0].clientY - dragStartY;
-        const distance = currentPositionRef.current + dragDistance;
+        const distance = Math.floor(currentPositionRef.current + dragDistance);
+
+        console.log(SCROLL_SIZE.minTop, SCROLL_SIZE.top, window.innerHeight);
+
         if (distance <= 0) {
-          if (tabPosition >= SCROLL_SIZE.top) setTabPosition(distance);
+          if (tabPosition >= SCROLL_SIZE.top) {
+            setTabPosition(distance);
+          }
         }
       }
     }
@@ -43,7 +48,6 @@ const useSlider = () => {
   const handleTouchEnd = () => {
     setIsDragging(false);
     // 맥스 사이즈일때
-
     if (tabPosition <= SCROLL_SIZE.minTop) {
       setTabPosition(SCROLL_SIZE.top);
     }

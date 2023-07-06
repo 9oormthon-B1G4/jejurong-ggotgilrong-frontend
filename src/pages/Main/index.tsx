@@ -1,9 +1,11 @@
+import MapView from '@components/map/MapView';
 import BottomSheet from 'src/components/main/BottomSheet';
 import { styled } from 'styled-components';
 
 export const MainPage = () => {
   return (
     <MainContainer>
+      <MapView />
       <BottomSheet />
     </MainContainer>
   );

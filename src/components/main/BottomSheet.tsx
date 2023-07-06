@@ -1,7 +1,7 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import ThemeBox from './ThemeBox';
 import QuestBookBox from './QuestBookBox';
-import useSlider from 'src/hooks/useSlider';
+import useSlider, { SCROLL_SIZE } from 'src/hooks/useSlider';
 import LocalPlaceBox from './LocalPlaceBox';
 
 const BottomSheet = () => {
@@ -21,7 +21,11 @@ const BottomSheet = () => {
       </TopBtnArea>
       <ThemeBox />
       <Divider />
-      <ContentsBox className="contentsBox" $isScroll={tabPosition === -450}>
+      <ContentsBox
+        className="contentsBox"
+        $isScroll={tabPosition === SCROLL_SIZE.top}
+        $bottomHeight={-window.innerHeight * 0.3}
+      >
         <QuestBookBox id={1} />
         <LocalPlaceBox />
       </ContentsBox>
@@ -66,7 +70,7 @@ const TopBtnArea = styled.div`
   }
 `;
 
-const ContentsBox = styled.div<{ $isScroll: boolean }>`
-  height: calc(100vh - 200px);
+const ContentsBox = styled.div<{ $isScroll: boolean; $bottomHeight: number }>`
+  height: ${({ $bottomHeight }) => `calc(100vh + ${$bottomHeight}px)`};
   overflow-y: ${({ $isScroll }) => ($isScroll ? 'scroll' : 'hidden')};
 `;

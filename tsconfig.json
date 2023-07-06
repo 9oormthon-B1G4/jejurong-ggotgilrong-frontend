@@ -11,7 +11,8 @@
       "@layout/*": ["src/layout/*"],
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "react-kakao-maps-sdk": ["node_modules/react-kakao-maps-sdk/lib/@types"]
     },
 
     /* Bundler mode */
@@ -28,7 +29,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "types": ["kakao.maps.d.ts"]
+    "types": ["kakao.maps.d.ts"],
+    "typeRoots": ["./node_modules", "./@types"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
