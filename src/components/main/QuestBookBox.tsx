@@ -1,19 +1,60 @@
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
+import QuestBookItem from './QuestBookItem';
 
-const QuestBookBox = () => {
+const QuestBookBox = ({ id }: { id: number }) => {
+  const navigate = useNavigate();
+
+  const handleMoveBook = (id: number) => {
+    navigate(`/main/${id}/book`);
+  };
+
   return (
     <QuestBookBoxCotainer>
       <QuestBookHeader>
-        <h1>방명록</h1> <span>전체보기 -</span>
+        <h1>방명록</h1>{' '}
+        <div onClick={() => handleMoveBook(id)}>
+          <span>전체보기 </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+          >
+            <path
+              d="M4.66675 2.33333L9.33341 7L4.66675 11.6667"
+              stroke="#929292"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </QuestBookHeader>
       <QuestBookItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
       >
-        <li>커피맛집, 인생 커피를 찾았어요요요요요요요...</li>
-        <li>커피맛집, 인생 커피를 찾았어요요요요요요요...</li>
-        <li>커피맛집, 인생 커피를 찾았어요요요요요요요...</li>
-        <li>커피맛집, 인생 커피를 찾았어요요요요요요요...</li>
-        <li>커피맛집, 인생 커피를 찾았어요요요요요요요...</li>
+        <QuestBookItem
+          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
+          station={'어디서나 정류장'}
+          onClick={() => handleMoveBook(1)}
+        />
+        <QuestBookItem
+          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
+          station={'어디서나 정류장'}
+          onClick={() => handleMoveBook(1)}
+        />
+        <QuestBookItem
+          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
+          station={'어디서나 정류장'}
+          onClick={() => handleMoveBook(1)}
+        />
+        <QuestBookItem
+          contents={'커피맛집, 인생 커피를 찾았어요요요요요요요...'}
+          station={'어디서나 정류장'}
+          onClick={() => handleMoveBook(1)}
+        />
       </QuestBookItemBox>
     </QuestBookBoxCotainer>
   );
@@ -38,14 +79,20 @@ const QuestBookHeader = styled.div`
     line-height: 22px;
   }
 
-  & > span {
+  & > div {
     cursor: pointer;
+    display: flex;
+    align-items: center;
     color: var(--gray-500, #929292);
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
+
+    & > span {
+      padding-top: 2px;
+      font-family: Pretendard;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+    }
   }
 `;
 
@@ -61,31 +108,5 @@ const QuestBookItemBox = styled.ul`
   scrollbar-width: none; /* 파이어폭스 */
   &::-webkit-scrollbar {
     display: none; /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
-  }
-
-  & li {
-    padding: 16px;
-    min-width: 106px;
-    height: 106px;
-    border-radius: 10px;
-    background: var(--gray-100, #f5f5f5);
-
-    color: var(--gray-900, #222);
-    text-align: center;
-
-    /* Text/xxs */
-    font-family: Pretendard;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
-    &:first-child {
-      margin-left: 16px;
-    }
-
-    &:last-child {
-      margin-right: 16px;
-    }
   }
 `;
