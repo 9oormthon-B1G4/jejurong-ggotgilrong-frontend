@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './styles/global-style';
+import GlobalFonts from '@assets/fonts';
 
 import { MainPage } from '@pages/Main';
 import { GuestBookPage } from '@pages/Guestbook';
@@ -11,6 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
+      <GlobalFonts />
       <Layout>
         <Routes>
           <Route path="/" element={<LandingPage />} />
