@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { WriteBtn } from '@components/guestbook/WriteBtn';
 import { Post } from '@components/guestbook/Post';
 
-export const Books = () => {
+interface propsType {
+  setIsOpenWrite: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export const Books = ({ setIsOpenWrite }: propsType) => {
   return (
     <BooksContainer>
       <Post />
@@ -11,7 +14,7 @@ export const Books = () => {
       <Post />
       <Post />
       <Post />
-      <WriteBtn />
+      <WriteBtn setIsOpenWrite={setIsOpenWrite} />
     </BooksContainer>
   );
 };

@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
-export const WriteBtn = () => {
+interface propsType {
+  setIsOpenWrite: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export const WriteBtn = ({ setIsOpenWrite }: propsType) => {
+  const handleClickWriteBtn = () => {
+    setIsOpenWrite(true);
+  };
   return (
     <Container>
-      <Btn>
+      <Btn onClick={handleClickWriteBtn}>
         <Icon src={import.meta.env.BASE_URL + './icon/pencil_icon.svg'} />
         <div>방명록 작성</div>
       </Btn>

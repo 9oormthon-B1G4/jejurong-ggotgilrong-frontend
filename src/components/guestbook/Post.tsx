@@ -23,13 +23,13 @@ export const Post = () => {
           <div className="date">2023.07.07</div>
           <div className="nickname">멘도롱또똣</div>
         </TextBox>
-        <Icon_Box>
+        <Icon_Box_Bottom>
           <img
             src={
               import.meta.env.BASE_URL + './icon/post_' + random_id + '_2.svg'
             }
           />
-        </Icon_Box>
+        </Icon_Box_Bottom>
       </Content>
     </PostContainer>
   );
@@ -68,6 +68,13 @@ const Icon_Box = styled.div`
   justify-content: center;
 `;
 
+const Icon_Box_Bottom = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+`;
+
 const TextBox = styled.div`
   flex: 1;
   display: flex;
@@ -85,9 +92,9 @@ const TextBox = styled.div`
     width: 100%;
     height: 40px;
     font-size: 12px;
-    line-height: 13px;
+    line-height: 14px;
     color: ${({ theme }) => theme.colors.gray_900};
-    margin-bottom: 9px;
+    margin-bottom: 20px;
 
     overflow: hidden;
     text-overflow: ellipsis;
