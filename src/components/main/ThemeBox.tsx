@@ -1,24 +1,9 @@
 import styled from 'styled-components';
 import ThemeTab from './ThemeTab';
-import { useState } from 'react';
-
-const arr = [
-  { id: 1, busNumber: 301 },
-  { id: 2, busNumber: 302 },
-  { id: 3, busNumber: 303 },
-  { id: 4, busNumber: 304 },
-  { id: 5, busNumber: 305 },
-  { id: 6, busNumber: 306 },
-  { id: 7, busNumber: 307 },
-  { id: 8, busNumber: 308 },
-];
+import { useThemeContext } from 'src/hooks/useTheme';
 
 const ThemeBox = () => {
-  const [activeTab, setActivetab] = useState<number>(arr[0].id);
-
-  const handleOnChangeTab = (id: number) => {
-    setActivetab(id);
-  };
+  const { landingData, activeTab, handleOnChangeTab } = useThemeContext();
 
   return (
     <ThemeBoxContainer>
@@ -28,12 +13,12 @@ const ThemeBox = () => {
       <ThemeItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
       >
-        {arr.map((item) => (
+        {landingData.map((item) => (
           <ThemeTab
-            key={item.id}
-            busNumber={item.busNumber}
-            isActive={activeTab === item.id}
-            handleOnClick={() => handleOnChangeTab(item.id)}
+            key={item.routeId}
+            busNumber={item.number}
+            isActive={activeTab === item.routeId}
+            handleOnClick={() => handleOnChangeTab(item.routeId)}
           />
         ))}
       </ThemeItemBox>
