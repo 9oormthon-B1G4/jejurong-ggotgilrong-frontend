@@ -4,8 +4,18 @@ interface propsType {
   setIsOpenDetailModal: React.Dispatch<React.SetStateAction<boolean>>;
   setIdx: React.Dispatch<React.SetStateAction<number>>;
   idx: number;
+  comment: string;
+  date: string;
+  nickname: string;
 }
-export const Post = ({ setIsOpenDetailModal, setIdx, idx }: propsType) => {
+export const Post = ({
+  setIsOpenDetailModal,
+  setIdx,
+  idx,
+  comment,
+  date,
+  nickname,
+}: propsType) => {
   const random_id = idx % 6;
 
   const handleClickPost = () => {
@@ -24,14 +34,9 @@ export const Post = ({ setIsOpenDetailModal, setIdx, idx }: propsType) => {
           />
         </Icon_Box>
         <TextBox>
-          <div className="comment">
-            커피맛집, 인생 커피를 찾았어요. 커피맛집, 인생 커피를
-            찾았어요.커피맛집, 인생 커피를 찾았어요.커피맛집, 인생 커피를
-            찾았어요.커피맛집, 인생 커피를 찾았어요.커피맛집, 인생 커피를
-            찾았어요.
-          </div>
-          <div className="date">2023.07.07</div>
-          <div className="nickname">멘도롱또똣</div>
+          <div className="comment">{comment}</div>
+          <div className="date">{date.replace(/-/g, '.')}</div>
+          <div className="nickname">{nickname}</div>
         </TextBox>
         <Icon_Box_Bottom>
           <img
