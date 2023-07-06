@@ -66,6 +66,7 @@ const PostContainer = styled.div`
 
   &:hover {
     cursor: pointer;
+    background-color: #ffe1d3;
   }
 `;
 

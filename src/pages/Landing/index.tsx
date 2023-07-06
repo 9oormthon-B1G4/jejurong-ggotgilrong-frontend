@@ -34,7 +34,7 @@ const LandingPageContainer = styled.div`
 `;
 
 const MainLogo = styled.div`
-  font-family: 'NanumSquare';
+  font-family: 'NanumSquareRound';
   font-weight: 700;
   font-size: 28px;
   margin: 80px auto 0;
