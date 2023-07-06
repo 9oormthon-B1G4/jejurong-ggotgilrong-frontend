@@ -34,6 +34,11 @@ footer, header, hgroup, main, menu, nav, section {
 body {
   line-height: 1;
 }
+
+html, body {
+  overscroll-behavior: none;
+}
+
 menu, ol, ul {
   list-style: none;
 }
