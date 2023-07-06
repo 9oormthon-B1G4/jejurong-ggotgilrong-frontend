@@ -38,6 +38,42 @@ export const Books = ({ setIsOpenWrite }: propsType) => {
           setIsOpenDetailModal={setIsOpenDetailModal}
           setRandomId={setRandomId}
         />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
+        <Post
+          setIsOpenDetailModal={setIsOpenDetailModal}
+          setRandomId={setRandomId}
+        />
         <WriteBtn setIsOpenWrite={setIsOpenWrite} />
       </BooksContainer>
     </>
@@ -45,7 +81,8 @@ export const Books = ({ setIsOpenWrite }: propsType) => {
 };
 
 const BooksContainer = styled.div`
-  margin-top: 155px;
+  margin-top: 120px;
+  padding: 2%;
 
   position: relative;
   height: calc(100% - 160px);
