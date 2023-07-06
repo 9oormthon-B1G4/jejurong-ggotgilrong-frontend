@@ -55,9 +55,9 @@ const MainImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 25px;
   img {
-    width: 80%;
+    width: 85%;
   }
 `;
 
