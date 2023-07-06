@@ -76,7 +76,7 @@ const ModalView = styled.div`
   width: 340px;
   height: 332px;
   margin-bottom: 120px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.gray_100};
   border-radius: 8px;
 `;
 
