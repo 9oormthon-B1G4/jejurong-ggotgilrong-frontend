@@ -29,9 +29,10 @@ export const Layout = ({ children }: LayoutProps) => {
 };
 
 const LayoutContainer = styled.div`
-  border: 1px solid black;
+  border: 1px solid transparent;
   width: 100%;
   max-width: 460px;
   height: 100vh;
+  //min-height: 100vh;
   margin: 0px auto;
 `;
