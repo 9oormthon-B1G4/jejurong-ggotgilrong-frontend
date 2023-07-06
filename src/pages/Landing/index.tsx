@@ -18,6 +18,9 @@ export const LandingPage = () => {
         <div>좋았던 장소가 있는 정류장에</div>
         <div>많은 추억이 있는 곳에 꽃길이 생깁니다</div>
       </ExplainText>
+      <MainImgContainer>
+        <img src={import.meta.env.BASE_URL + './image/main_img.svg'} />
+      </MainImgContainer>
       <StartBtn onClick={handleClickStartBtn}>시작하기</StartBtn>
     </LandingPageContainer>
   );
@@ -38,13 +41,24 @@ const MainLogo = styled.div`
 `;
 
 const ExplainText = styled.div`
-  margin: 20px auto;
+  margin: 30px auto;
 
   font-family: 'NanumSquare';
   font-weight: 700;
   font-size: 14px;
   color: #616161;
   text-align: center;
+`;
+
+const MainImgContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  img {
+    width: 60%;
+  }
 `;
 
 const StartBtn = styled.button`
