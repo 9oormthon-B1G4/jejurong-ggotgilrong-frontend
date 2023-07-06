@@ -1,3 +1,16 @@
+import BottomSheet from 'src/components/common/BottomSheet';
+import { styled } from 'styled-components';
+
 export const MainPage = () => {
-  return <div>메인페이지</div>;
+  return (
+    <MainContainer>
+      <BottomSheet />
+    </MainContainer>
+  );
 };
+
+const MainContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
