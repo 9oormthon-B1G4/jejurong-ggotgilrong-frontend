@@ -45,9 +45,9 @@ export const Post = ({ setIsOpenDetailModal, setRandomId }: propsType) => {
 };
 
 const PostContainer = styled.div`
-  width: 45%;
+  width: 46%;
   border-radius: 10px;
-  margin: 8px;
+  margin: 2%;
   position: relative;
 
   background-color: ${({ theme }) => theme.colors.gray_100};

@@ -21,13 +21,13 @@ export const Header = () => {
 const HeaderContainer = styled.div`
   width: 100%;
   max-width: 460px;
-  height: 90px;
+  height: 60px;
   //padding-top: 45px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   top: 0;
 
   background-color: white;
@@ -38,7 +38,7 @@ const BusName = styled.div`
   font-family: 'NanumSquare';
   font-weight: 700;
   font-size: 16px;
-  margin-top: 40px;
+  margin-top: 10px;
 `;
 
 const BackBtn = styled.button`
@@ -46,7 +46,7 @@ const BackBtn = styled.button`
   left: 16px;
   top: 50%;
   transform: translate(0, -50%);
-  margin-top: 20px;
+  margin-top: 10px;
 
   background-color: transparent;
   border: none;

@@ -53,8 +53,8 @@ const StationsContainer = styled.div`
     display: none;
   }
 
-  position: absolute;
-  top: 93px;
+  position: fixed;
+  top: 60px;
 
   background-color: white;
 `;
