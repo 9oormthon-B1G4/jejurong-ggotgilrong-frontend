@@ -41,6 +41,7 @@ const StationsContainer = styled.div`
   border: 1px solid transparent;
 
   width: 100%;
+  max-width: 460px;
   height: 62px;
   padding: 16px 0;
   padding-left: 16px;
@@ -51,6 +52,11 @@ const StationsContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  position: absolute;
+  top: 93px;
+
+  background-color: white;
 `;
 
 const StationChip = styled.div`
