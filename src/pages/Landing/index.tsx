@@ -11,8 +11,7 @@ export const LandingPage = () => {
   return (
     <LandingPageContainer>
       <MainLogo>
-        <div>제주롱</div>
-        <div>꽃길롱</div>
+        <img src={import.meta.env.BASE_URL + './image/main_title.svg'} />
       </MainLogo>
       <ExplainText>
         <div>정류장 구석구석 꽃을 피워내 보세요.</div>
@@ -34,10 +33,7 @@ const LandingPageContainer = styled.div`
 `;
 
 const MainLogo = styled.div`
-  font-family: 'NanumSquareRound';
-  font-weight: 700;
-  font-size: 40px;
-  margin: 80px auto 0;
+  margin: 60px auto 0;
 `;
 
 const ExplainText = styled.div`
