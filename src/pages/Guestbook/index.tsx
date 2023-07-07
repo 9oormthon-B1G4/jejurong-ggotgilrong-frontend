@@ -104,6 +104,7 @@ export const GuestBookPage = () => {
         getGuestBooks={getGuestBooks}
         busstops={route?.busStopResponses || []}
         getBusStopGuestBooks={getBusStopGuestBooks}
+        selectedBusStop={selectedBusStop}
       />
     </>
   );
