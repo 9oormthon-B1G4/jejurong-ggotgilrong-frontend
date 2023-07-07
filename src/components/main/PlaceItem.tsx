@@ -11,7 +11,7 @@ interface PlaceItemProps {
 
 const PlaceItem = ({ title, desc, url, src, stationName }: PlaceItemProps) => {
   const handleMove = () => {
-    location.href = url;
+    window.open(url);
   };
 
   return (
