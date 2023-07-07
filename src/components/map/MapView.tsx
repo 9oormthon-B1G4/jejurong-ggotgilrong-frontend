@@ -10,7 +10,6 @@ const MapView = () => {
   const mapBounds = () => {
     const bounds = new kakao.maps.LatLngBounds();
     busLineData.busStopMapResponses.forEach((item) => {
-      console.log(item);
       bounds.extend(new kakao.maps.LatLng(item.latitude, item.longitude));
     });
     return bounds;
@@ -18,11 +17,12 @@ const MapView = () => {
 
   useEffect(() => {
     if (mapRef.current) {
-      console.log(mapRef.current);
-      const bounds = mapBounds();
-      mapRef.current.setBounds(bounds);
+      if (busLineData.busStopMapResponses.length > 0) {
+        const bounds = mapBounds();
+        mapRef.current.setBounds(bounds);
+      }
     }
-  }, [mapRef.current]);
+  }, [mapRef.current, busLineData.busStopMapResponses]);
 
   return (
     <div>

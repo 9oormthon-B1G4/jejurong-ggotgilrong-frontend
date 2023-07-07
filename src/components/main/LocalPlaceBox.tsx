@@ -13,9 +13,9 @@ const LocalPlaceBox = ({
       <PlaceItemBox
         onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
       >
-        {placeData.map((item) => (
+        {placeData.map((item, idx) => (
           <PlaceItem
-            key={item.address}
+            key={idx}
             title={item.name}
             desc={item.description}
             url={item.url}
@@ -36,7 +36,7 @@ const LocalPlaceBoxContiner = styled.div`
   & > h1 {
     color: var(--gray-900, #222);
     font-family: 'Pretendard';
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: 22px;
@@ -47,5 +47,6 @@ const PlaceItemBox = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 17px;
+  padding-bottom: 100px;
   gap: 16px;
 `;

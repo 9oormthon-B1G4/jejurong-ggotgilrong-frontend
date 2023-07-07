@@ -22,12 +22,10 @@ const ThemeBox = () => {
           />
         ))}
       </ThemeItemBox>
-
       <ThemeInfoBox>
-        <h2>릴렉스 버스</h2>
+        <h2>{landingData.find((item) => item.routeId === activeTab)?.name}</h2>
         <p>
-          제주시의 카페에서 여유로운 아침을 맞고 저녁엔 삼양 검은 모래 해변
-          데크를 따라 걷기 좋은 노선 입니다.
+          {landingData.find((item) => item.routeId === activeTab)?.description}
         </p>
       </ThemeInfoBox>
     </ThemeBoxContainer>
