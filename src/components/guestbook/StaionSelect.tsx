@@ -46,6 +46,7 @@ const SelectBox = styled.select`
   height: 48px;
   margin: 0 auto;
   padding: 0 16px;
+  background-color: white;
   border: 1px solid ${({ theme }) => theme.colors.gray_300};
   border-radius: 8px;
 
@@ -57,6 +58,7 @@ const SelectBox = styled.select`
   font-size: 14px;
 
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   &::-ms-expand {
     display: none;
