@@ -10,6 +10,7 @@ interface propsType {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   getGuestBooks: () => void;
   busstops: BusStop[];
+  getBusStopGuestBooks: () => void;
 }
 
 export const WriteModal = ({
@@ -17,6 +18,7 @@ export const WriteModal = ({
   setIsOpen,
   getGuestBooks,
   busstops,
+  getBusStopGuestBooks,
 }: propsType) => {
   const [inputText, setInputText] = useState<string>('');
   const [selectedStation, setSelectedStation] = useState<number>(1);
@@ -27,7 +29,8 @@ export const WriteModal = ({
         content: inputText,
       })
       .then(() => {
-        getGuestBooks();
+        //getGuestBooks();
+        getBusStopGuestBooks();
       })
       .catch((error) => {
         console.error(error);
