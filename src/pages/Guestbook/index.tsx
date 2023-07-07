@@ -52,6 +52,7 @@ export const GuestBookPage = () => {
       });
   };
 
+  //노선별 방명록 조회
   const getGuestBooks = () => {
     axiosInstance
       .get(`/api/guest-books/routes/${routeId}`)
@@ -63,6 +64,7 @@ export const GuestBookPage = () => {
       });
   };
 
+  //특정 정류소 방명록 조회
   const getBusStopGuestBooks = () => {
     axiosInstance
       .get(`/api/guest-books/bus-stops/${selectedBusStop}`)
@@ -101,6 +103,7 @@ export const GuestBookPage = () => {
         setIsOpen={setIsOpenWrite}
         getGuestBooks={getGuestBooks}
         busstops={route?.busStopResponses || []}
+        getBusStopGuestBooks={getBusStopGuestBooks}
       />
     </>
   );
