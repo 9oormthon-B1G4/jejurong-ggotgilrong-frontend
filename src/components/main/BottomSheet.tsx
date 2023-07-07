@@ -6,8 +6,13 @@ import LocalPlaceBox from './LocalPlaceBox';
 import { useThemeContext } from 'src/hooks/useTheme';
 
 const BottomSheet = () => {
-  const { tabPosition, handleTouchStart, handleTouchMove, handleTouchEnd } =
-    useSlider();
+  const {
+    tabPosition,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    handleShowSheetBox,
+  } = useSlider();
   const { activeTab, busLineData } = useThemeContext();
 
   return (
@@ -18,7 +23,7 @@ const BottomSheet = () => {
       onTouchEnd={handleTouchEnd}
       style={{ transform: `translateY(${tabPosition}px)` }}
     >
-      <TopBtnArea>
+      <TopBtnArea onClick={handleShowSheetBox}>
         <span></span>
       </TopBtnArea>
       <ThemeBox />
@@ -62,11 +67,11 @@ const BottomSheetContainer = styled.div`
 `;
 
 const TopBtnArea = styled.div`
+  cursor: pointer;
   height: 27px;
   padding-top: 8px;
 
   & > span {
-    cursor: pointer;
     display: block;
     margin: 0 auto;
     height: 3px;
