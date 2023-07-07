@@ -10,14 +10,36 @@ export const StationSelect = ({ setSelectedStation, busstops }: propsType) => {
     setSelectedStation(Number(e.currentTarget.value));
   };
   return (
-    <SelectBox onChange={handleChangeSelectBox}>
-      {busstops &&
-        busstops?.map((el) => {
-          return <StationOption value={el.busStopId}>{el.name}</StationOption>;
-        })}
-    </SelectBox>
+    <SelectContainer>
+      <SelectBox onChange={handleChangeSelectBox}>
+        <option hidden={true} value="" disabled selected={true}>
+          버스 정류장 선택하기
+        </option>
+        {busstops &&
+          busstops?.map((el) => {
+            return (
+              <StationOption value={el.busStopId}>{el.name}</StationOption>
+            );
+          })}
+      </SelectBox>
+      <img
+        role="presentation"
+        src={import.meta.env.BASE_URL + './icon/select_arrow.svg'}
+      />
+    </SelectContainer>
   );
 };
+
+const SelectContainer = styled.div`
+  position: relative;
+  img {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 100;
+  }
+`;
 
 const SelectBox = styled.select`
   width: 300px;
@@ -33,6 +55,12 @@ const SelectBox = styled.select`
 
   font-family: 'Pretendard';
   font-size: 14px;
+
+  -webkit-appearance: none;
+  appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
 `;
 
 const StationOption = styled.option``;

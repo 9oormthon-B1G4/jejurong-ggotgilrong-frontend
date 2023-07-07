@@ -69,6 +69,7 @@ const StationsContainer = styled.div`
 const StationChip = styled.div`
   height: 28px;
   padding: 0 12px;
+  margin: 0 2px;
 
   font-family: 'Pretendard';
   font-size: 16px;
