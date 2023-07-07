@@ -17,7 +17,7 @@ const PlaceItem = ({ title, desc, url, src, stationName }: PlaceItemProps) => {
   return (
     <PlaceItemContainer onClick={handleMove}>
       <div className="wrapper">
-        <img src={src} alt={title} />
+        <img src={`image/${src}`} alt={title} />
       </div>
       <div className="info">
         <h2>{title}</h2>

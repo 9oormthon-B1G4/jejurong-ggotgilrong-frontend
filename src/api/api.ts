@@ -9,6 +9,7 @@ export interface LandingData {
   routeId: number;
   name: string;
   number: number;
+  description: string;
   busStopResponses: BusResponse[];
 }
 

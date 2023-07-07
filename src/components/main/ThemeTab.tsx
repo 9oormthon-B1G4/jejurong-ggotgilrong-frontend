@@ -38,6 +38,7 @@ const Tab = styled.li<{ $isActive: boolean }>`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -65%);
+    white-space: nowrap;
     font-family: 'Pretendard';
     font-size: 12px;
     font-weight: 600;

@@ -68,7 +68,7 @@ const QuestBookHeader = styled.div`
   & > h1 {
     color: var(--gray-900, #222);
     font-family: 'Pretendard';
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: 22px;
