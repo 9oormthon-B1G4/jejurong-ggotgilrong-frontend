@@ -11,14 +11,16 @@ interface propsType {
   getGuestBooks: () => void;
   busstops: BusStop[];
   getBusStopGuestBooks: () => void;
+  selectedBusStop: number;
 }
 
 export const WriteModal = ({
   isOpen,
   setIsOpen,
-  //getGuestBooks,
+  getGuestBooks,
   busstops,
   getBusStopGuestBooks,
+  selectedBusStop,
 }: propsType) => {
   const [inputText, setInputText] = useState<string>('');
   const [selectedStation, setSelectedStation] = useState<number>(1);
@@ -29,8 +31,11 @@ export const WriteModal = ({
         content: inputText,
       })
       .then(() => {
-        //getGuestBooks();
-        getBusStopGuestBooks();
+        if (selectedBusStop === 0) {
+          getGuestBooks();
+        } else {
+          getBusStopGuestBooks();
+        }
       })
       .catch((error) => {
         console.error(error);
