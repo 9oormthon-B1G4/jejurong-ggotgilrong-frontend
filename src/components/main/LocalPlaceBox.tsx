@@ -20,7 +20,7 @@ const LocalPlaceBox = ({
             desc={item.description}
             url={item.url}
             src={item.image}
-            stationName="정류장"
+            stationName={item.busStopName}
           />
         ))}
       </PlaceItemBox>
