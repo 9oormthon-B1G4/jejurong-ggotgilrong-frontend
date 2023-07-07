@@ -35,9 +35,11 @@ export const Post = ({
         </Icon_Box>
         <TextBox>
           <div className="comment">{comment}</div>
+        </TextBox>
+        <InfoBox>
           <div className="date">{date.replace(/-/g, '.')}</div>
           <div className="nickname">{nickname}</div>
-        </TextBox>
+        </InfoBox>
         <Icon_Box_Bottom>
           <img
             src={
@@ -109,7 +111,7 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   font-family: 'Pretendard';
   font-weight: 400;
   text-align: center;
@@ -118,7 +120,6 @@ const TextBox = styled.div`
 
   div.comment {
     width: 100%;
-    height: 40px;
     font-size: 12px;
     line-height: 16px;
     color: ${({ theme }) => theme.colors.gray_900};
@@ -127,17 +128,22 @@ const TextBox = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     word-break: break-word;
   }
+`;
+
+const InfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   div.date,
   div.nickname {
+    font-family: 'Pretendard';
     font-size: 11px;
+    font-weight: 400;
     color: ${({ theme }) => theme.colors.gray_700};
     margin: 2px 0;
-  }
-  div.date {
-    margin-top: 4px;
   }
 `;

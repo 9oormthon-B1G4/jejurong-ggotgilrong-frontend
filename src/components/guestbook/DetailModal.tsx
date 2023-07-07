@@ -30,7 +30,9 @@ export const DetailModal = ({
                 src={import.meta.env.BASE_URL + './icon/post_' + idx + '_1.svg'}
               />
             </TopImgContainer>
-            <Comment>{comment}</Comment>
+            <Comment>
+              <div>{comment}</div>
+            </Comment>
             <Info>
               <div className="date">{date.replace(/-/g, '.')}</div>
               <div className="nickname">{nickname}</div>
@@ -68,6 +70,9 @@ const ModalView = styled.div`
   margin-bottom: 120px;
   background-color: ${({ theme }) => theme.colors.gray_100};
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const TopImgContainer = styled.div`
@@ -83,15 +88,20 @@ const TopImgContainer = styled.div`
 `;
 
 const Comment = styled.div`
+  flex: 1;
   width: 100%;
-  height: 120px;
-  padding: 16px;
+  padding: 0 16px;
 
   font-size: 16px;
   line-height: 22px;
   font-family: 'Pretendard';
   font-weight: 400;
   color: ${({ theme }) => theme.colors.gray_700};
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Info = styled.div`
@@ -101,6 +111,7 @@ const Info = styled.div`
   font-weight: 400;
   color: ${({ theme }) => theme.colors.gray_700};
   text-align: center;
+  margin-top: 15px;
 
   div.date {
     font-size: 14px;
