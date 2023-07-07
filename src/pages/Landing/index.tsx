@@ -54,7 +54,7 @@ const MainImgContainer = styled.div`
   justify-content: center;
   margin-top: 24px;
   img {
-    width: 83%;
+    width: 84%;
   }
 `;
 
