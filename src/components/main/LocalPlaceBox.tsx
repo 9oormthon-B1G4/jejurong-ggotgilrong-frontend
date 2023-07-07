@@ -10,7 +10,9 @@ const LocalPlaceBox = ({
   return (
     <LocalPlaceBoxContiner>
       <h1>이 근처 추천 장소</h1>
-      <PlaceItemBox>
+      <PlaceItemBox
+        onTouchMove={(e: React.TouchEvent<HTMLElement>) => e.stopPropagation()}
+      >
         {placeData.map((item) => (
           <PlaceItem
             key={item.address}

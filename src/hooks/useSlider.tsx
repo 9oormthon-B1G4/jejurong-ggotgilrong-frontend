@@ -13,6 +13,7 @@ export interface ReactContextValueProps {
   handleTouchStart: (event: React.TouchEvent<HTMLDivElement>) => void;
   handleTouchMove: (event: React.TouchEvent<HTMLDivElement>) => void;
   handleTouchEnd: () => void;
+  handleShowSheetBox: () => void;
 }
 
 const useSlider = () => {
@@ -55,12 +56,23 @@ const useSlider = () => {
     }
   };
 
+  const handleShowSheetBox = () => {
+    if (tabPosition < 0) {
+      setTabPosition(0);
+      currentPositionRef.current = 0;
+    } else {
+      setTabPosition(SCROLL_SIZE.top);
+      currentPositionRef.current = SCROLL_SIZE.top;
+    }
+  };
+
   const contextValue = {
     isDragging,
     tabPosition,
     handleTouchStart,
     handleTouchMove,
     handleTouchEnd,
+    handleShowSheetBox,
   };
 
   return contextValue;

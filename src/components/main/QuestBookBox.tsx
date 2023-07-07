@@ -94,7 +94,6 @@ const QuestBookHeader = styled.div`
 const QuestBookItemBox = styled.ul`
   display: flex;
   padding: 0;
-  margin-bottom: 28px;
   align-items: flex-start;
   gap: 8px;
   overflow-x: scroll;
