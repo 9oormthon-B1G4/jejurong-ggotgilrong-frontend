@@ -40,6 +40,7 @@ const QuestBookItemContainer = styled.li<{
   justify-content: center;
   padding: 16px;
   min-width: 106px;
+  max-width: 106px;
   height: 106px;
   border-radius: 10px;
   background: var(--gray-100, #f5f5f5);

@@ -57,7 +57,10 @@ const QuestBookBox = ({ id, questData }: QuestBookBoxProps) => {
 
 export default QuestBookBox;
 
-const QuestBookBoxCotainer = styled.div``;
+const QuestBookBoxCotainer = styled.div`
+  overflow-x: scroll;
+  overflow-y: hidden;
+`;
 
 const QuestBookHeader = styled.div`
   display: flex;
