@@ -16,7 +16,7 @@ interface propsType {
 export const WriteModal = ({
   isOpen,
   setIsOpen,
-  getGuestBooks,
+  //getGuestBooks,
   busstops,
   getBusStopGuestBooks,
 }: propsType) => {
