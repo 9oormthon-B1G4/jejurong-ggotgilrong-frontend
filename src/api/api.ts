@@ -29,7 +29,7 @@ export interface GuestBookResponse {
 export interface RecommendedPlaceResponse {
   image: string;
   name: string;
-  address: string;
+  busStopName: string;
   description: string;
   url: string;
 }
