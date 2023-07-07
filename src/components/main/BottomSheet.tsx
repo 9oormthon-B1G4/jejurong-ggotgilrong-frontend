@@ -32,7 +32,6 @@ const BottomSheet = () => {
           id={activeTab}
           questData={busLineData.guestBookPreviewResponses}
         />
-        <ContentDivider />
         <LocalPlaceBox placeData={busLineData.recommendedPlaceResponses} />
       </ContentsBox>
     </BottomSheetContainer>
@@ -48,17 +47,11 @@ const Divider = styled.div`
   background-color: #e0e0e0;
 `;
 
-const ContentDivider = styled.div`
-  width: 100%;
-  height: 8px;
-  background: var(--gray-50, #fafafa);
-`;
-
 const BottomSheetContainer = styled.div`
   position: absolute;
   display: flex;
   width: 100%;
-  top: calc(100% - 420px);
+  top: calc(100% - 400px);
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 30px 30px 0px 0px;
