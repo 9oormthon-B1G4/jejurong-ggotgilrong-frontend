@@ -41,7 +41,12 @@ export const Books = ({ setIsOpenWrite, books }: propsType) => {
               />
             );
           })}
-
+        {books && books.length === 0 ? (
+          <NoContentMsg>
+            <div>아직 방명록이 없어요.</div>
+            <div>직접 남겨보세요!</div>
+          </NoContentMsg>
+        ) : null}
         <WriteBtn setIsOpenWrite={setIsOpenWrite} />
       </BooksContainer>
     </>
@@ -64,4 +69,17 @@ const BooksContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: flex-start;
+`;
+
+const NoContentMsg = styled.div`
+  font-family: 'Pretendard';
+  font-size: 14px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.orange_400};
+  width: 100%;
+  text-align: center;
+
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 `;
