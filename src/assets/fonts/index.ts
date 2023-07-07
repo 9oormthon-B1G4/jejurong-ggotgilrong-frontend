@@ -15,7 +15,7 @@ export default createGlobalStyle`
     font-style: normal;
 }
 @font-face {
-    font-family: "Pretendard";
+    font-family: "PretendardBold";
     src: local("PretendardBold"),
     url(${PretendardBold}) format('woff2');
     font-style: normal;
