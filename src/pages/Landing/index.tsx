@@ -41,7 +41,7 @@ const MainLogo = styled.div`
 `;
 
 const ExplainText = styled.div`
-  margin: 30px auto;
+  margin: 30px auto 0 auto;
 
   font-family: 'Pretendard';
   font-weight: 400;
@@ -56,9 +56,9 @@ const MainImgContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 24px;
   img {
-    width: 80%;
+    width: 83%;
   }
 `;
 
